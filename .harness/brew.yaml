@@ -1,0 +1,35 @@
+pipeline:
+  name: brew
+  identifier: brew
+  projectIdentifier: DhrubaCI
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: dhrubaaccountconnector
+        repoName: brew
+        build: <+input>
+  stages:
+    - stage:
+        name: docker
+        identifier: docker
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Fetch origin-master from Git
+                  identifier: Fetch_originmaster_from_Git
+                  spec:
+                    shell: Sh
+                    command: git fetch origin master
