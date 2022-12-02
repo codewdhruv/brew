@@ -41,4 +41,6 @@ pipeline:
                     connectorRef: DhrubajyotiDocker
                     image: alpine
                     shell: Sh
-                    command: brew_version="git describe --tags --dirty --abbrev=7"
+                    command: |-
+                      brew_version="git describe --tags --dirty --abbrev=7"
+                      echo "Building for Homebrew ${brew_version}"
