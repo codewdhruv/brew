@@ -38,6 +38,8 @@ pipeline:
                   name: Build docker image
                   identifier: Build_docker_image
                   spec:
+                    connectorRef: DhrubajyotiDocker
+                    image: Dockerfile
                     shell: Sh
                     command: |2
                                 brew_version="$(git describe --tags --dirty --abbrev=7)"
